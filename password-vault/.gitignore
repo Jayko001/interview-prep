@@ -1,0 +1,8 @@
+# Environment and secrets
+demo/.env
+
+# Local/sensitive data
+demo/backups/
+demo/vw-data/
+demo/caddy-data/
+demo/caddy-config/

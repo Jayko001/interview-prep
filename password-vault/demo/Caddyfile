@@ -1,0 +1,16 @@
+# Use your full Tailscale domain here
+vault.tail5e1da2.ts.net {
+    # This tells Caddy: "Generate your own self-signed certs"
+    tls internal
+
+    log {
+        output file /data/access.log
+        format json
+    }
+
+    reverse_proxy vaultwarden:80 {
+       header_up X-Real-IP {remote_host}
+    }
+
+    reverse_proxy /notifications/hub vaultwarden:3012
+}
